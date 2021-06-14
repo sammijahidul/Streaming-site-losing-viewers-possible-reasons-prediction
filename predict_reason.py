@@ -76,7 +76,7 @@ data_set['Weekday'] = data_set['Weekday'].astype(int)
 data_set.head()
 
 
-# Running first model Weekday & visitors
+# Running first model using Weekday & visitors
 X = data_set[['Visitors' , 'Weekday']]
 Y = data_set['Views_show']
 
@@ -104,7 +104,7 @@ def cond(i):
 data_set['Weekend']=[cond(i) for i in data_set['Day']]
 
 
-# Running second model Weekend & visitors
+# Running second model using Weekend & visitors
 X = data_set[['Visitors','Weekend']]
 Y = data_set['Views_show']
 
@@ -115,7 +115,7 @@ lm_2 = sm.OLS(Y,X).fit()
 print(lm_2.summary())
 
 
-# Running Third model Weekend, visitors & Character_A
+# Running Third model using Weekend, visitors & Character_A
 X = data_set[['Visitors','Weekend','Character_A']]
 Y = data_set['Views_show']
 
@@ -131,7 +131,7 @@ data_set['last_view'] = np.roll(data_set['Views_show'], 1)
 data_set.last_view.replace(108961,0, inplace=True)
 
 
-# Running fourth model Weekend, visitors , Character_A, last_view
+# Running fourth model using Weekend, visitors , Character_A, last_view
 X = data_set[['Visitors' , 'Weekend','Character_A', 'last_view']]
 Y = data_set['Views_show']
 
@@ -143,7 +143,7 @@ lm_4 = sm.OLS(Y,X).fit()
 print(lm_4.summary())
 
     
-# Running fifth model Weekdend, Character_A & views_platform
+# Running fifth model using Weekdend, Character_A & views_platform
 X = data_set[['Weekend' , 'Character_A', 'Views_platform']]
 Y = data_set['Views_show']
 
@@ -154,7 +154,7 @@ lm_5 = sm.OLS(Y,X).fit()
 print(lm_5.summary())
 
 
-# Running Third model Weekend, visitors & Character_A
+# Running sixth model using Weekend, visitors & Character_A
 X = data_set[['Weekend','Character_A', 'Visitors']]
 Y = data_set['Views_show']
 
@@ -165,7 +165,7 @@ lm_6 = sm.OLS(Y,X).fit()
 print(lm_6.summary())
 
 
-# Running Third model Weekend, visitors & Character_A
+# Running seventh model using Weekend, visitors, Character_A & Ad_impression
 X = data_set[['Weekend','Character_A', 'Visitors', 'Ad_impression']]
 Y = data_set['Views_show']
 
@@ -176,7 +176,7 @@ lm_7 = sm.OLS(Y,X).fit()
 print(lm_7.summary())
 
 
-# Running Third model Weekend, visitors & Character_A
+# Running eighth model using Weekend, Ad_impression & Character_A
 X = data_set[['Weekend','Character_A', 'Ad_impression']]
 Y = data_set['Views_show']
 
@@ -191,7 +191,7 @@ print(lm_8.summary())
 data_set['Ad_impression_million'] = data_set['Ad_impression']/1000000
 
 
-# Running Third model Weekend, visitors & Character_A
+# Running ninth model using Weekend, Character_A, Ad_impression_million & Cricket_match_india
 X = data_set[['Weekend','Character_A', 'Ad_impression_million','Cricket_match_india']]
 Y = data_set['Views_show']
 
@@ -202,7 +202,7 @@ lm_9 = sm.OLS(Y,X).fit()
 print(lm_9.summary())
 
 
-# Running Third model Weekend, visitors & Character_A
+# Running tenth model using Weekend, Character_A & Ad_impression_million
 X = data_set[['Weekend','Character_A', 'Ad_impression_million',]]
 Y = data_set['Views_show']
 
